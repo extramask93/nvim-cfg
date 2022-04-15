@@ -1,5 +1,11 @@
 -- following options are the default
 -- each of these are documented in `:help nvim-tree.OPTION_NAME`
+vim.cmd [[
+  augroup _nvim_tree
+    autocmd!
+    autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif
+  augroup end
+]]
 vim.g.nvim_tree_icons = {
   default = "",
   symlink = "",
@@ -42,7 +48,6 @@ nvim_tree.setup {
     "dashboard",
     "alpha",
   },
-  auto_close = true,
   open_on_tab = false,
   hijack_cursor = false,
   update_cwd = true,
