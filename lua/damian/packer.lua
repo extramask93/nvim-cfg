@@ -6,7 +6,8 @@ vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
-
+  use "lukas-reineke/indent-blankline.nvim" -- show indentation
+  use "nvim-lualine/lualine.nvim" -- fancier status bar
   use {
 	  'nvim-telescope/telescope.nvim', tag = '0.1.0',
 	  -- or                            , branch = '0.1.x',
