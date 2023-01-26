@@ -1,5 +1,7 @@
 require'nvim-treesitter.configs'.setup {
-    ensure_installed = {"c", "cpp", "rust"},
+    --if i fail to compile set "CC=path-to-c-compiler"
+    ensure_installed = {"rust", "c", "cpp", "cmake", "diff", "lua", "gitcommit",
+                        "git_rebase"},
     sync_install = false,
 
     highlight = {

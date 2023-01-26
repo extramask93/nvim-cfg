@@ -21,6 +21,8 @@ vim.opt.isfname:append("@-@")
 vim.opt.wrap = false
 vim.opt.swapfile = false
 vim.opt.backup = false
-vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+if vim.fn.has('macunix') == 1 then
+    vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+end
 vim.opt.undofile = true
 vim.opt.errorbells = false
