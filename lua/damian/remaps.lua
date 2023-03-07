@@ -1,5 +1,5 @@
 vim.g.mapleader = " "
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>ex", vim.cmd.Ex)
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
@@ -10,13 +10,6 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
-vim.keymap.set("n", "<leader>vwm", function()
-    require("vim-with-me").StartVimWithMe()
-end)
-vim.keymap.set("n", "<leader>svwm", function()
-    require("vim-with-me").StopVimWithMe()
-end)
-
 -- greatest remap ever
 vim.keymap.set("x", "<leader>p", "\"_dP")
 
@@ -24,6 +17,8 @@ vim.keymap.set("x", "<leader>p", "\"_dP")
 vim.keymap.set("n", "<leader>y", "\"*y")
 vim.keymap.set("v", "<leader>y", "\"*y")
 vim.keymap.set("n", "<leader>Y", "\"*Y")
+vim.keymap.set("n", "<leader>p", "\"*p")
+vim.keymap.set("n", "<leader>P", "\"*P")
 
 vim.keymap.set("n", "<leader>d", "\"_d")
 vim.keymap.set("v", "<leader>d", "\"_d")
@@ -42,5 +37,14 @@ vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
+--insert new lines w/o leaving normal mode
+vim.keymap.set("n", "<leader>o", "<cmd>set paste<CR>m`o<Esc>``<cmd>set nopaste<CR>")
+vim.keymap.set("n", "<leader>O", "<cmd>set paste<CR>m`O<Esc>``<cmd>set nopaste<CR>")
+
 vim.keymap.set("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
+
+local function toggle_spell_check()
+    vim.opt.spell = not(vim.opt.spell:get())
+end
+vim.keymap.set("n", "<F11>", toggle_spell_check)

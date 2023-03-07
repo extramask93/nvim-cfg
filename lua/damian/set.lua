@@ -26,3 +26,7 @@ if vim.fn.has('macunix') == 1 then
 end
 vim.opt.undofile = true
 vim.opt.errorbells = false
+-- enable spell checking by default
+vim.opt.spell = true
+vim.opt.spelllang = {"en","pl"}
+
