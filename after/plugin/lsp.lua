@@ -34,6 +34,10 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
     end, { 'i', 's' }),
 })
 
+vim.diagnostic.config({
+  virtual_text = false,
+})
+
 lsp.set_preferences({
   sign_icons = { }
 })

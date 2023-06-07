@@ -35,33 +35,23 @@ local mappings = {
     l = {
         name = "LSP",
         a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
-        d = {
-            "<cmd>Telescope lsp_document_diagnostics<cr>",
-            "Document Diagnostics",
-        },
-        w = {
-            "<cmd>Telescope lsp_workspace_diagnostics<cr>",
-            "Workspace Diagnostics",
-        },
+        d = { "<cmd>lua vim.diagnostic.open_float()<cr>", "Diagnostic" },
         f = { "<cmd>lua vim.lsp.buf.format{async=true}<cr>", "Format" },
+        g = { "<cmd>lua vim.lsp.buf.definition()<cr>", "Go to definition"},
+        h = { "<cmd>lua vim.lsp.buf.hover()<cr>", "Hover"},
         i = { "<cmd>LspInfo<cr>", "Info" },
         I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
         j = {
-            "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>",
+            "<cmd>lua vim.diagnostic.goto_next()<CR>",
             "Next Diagnostic",
         },
         k = {
-            "<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>",
+            "<cmd>lua vim.diagnostic.goto_prev()<cr>",
             "Prev Diagnostic",
         },
         l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
-        q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix" },
+        q = { "<cmd>lua vim.diagnostic.setloclist()<cr>", "Quickfix" },
         r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
-        s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
-        S = {
-            "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
-            "Workspace Symbols",
-        },
     },
 
 }
