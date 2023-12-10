@@ -35,6 +35,7 @@ local mappings = {
     l = {
         name = "LSP",
         a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
+        n = { function() vim.lsp.inlay_hint.enable(0,not vim.lsp.inlay_hint.is_enabled()) end, "Toggle inlay" },
         d = { "<cmd>lua vim.diagnostic.open_float()<cr>", "Diagnostic" },
         f = { "<cmd>lua vim.lsp.buf.format{async=true}<cr>", "Format" },
         g = { "<cmd>lua vim.lsp.buf.definition()<cr>", "Go to definition"},
