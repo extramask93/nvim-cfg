@@ -1,9 +1,18 @@
-local nnoremap = require("damian.keymap").nnoremap
-local harpoon_ui = require("harpoon.ui")
-local harpoon_mark = require("harpoon.mark")
-nnoremap("<leader>a", function() harpoon_mark.add_file() end)
-nnoremap("<C-e>", function() harpoon_ui.toggle_quick_menu() end)
-nnoremap("<C-h>", function() harpoon_ui.nav_file(1) end)
-nnoremap("<C-t>", function() harpoon_ui.nav_file(2) end)
-nnoremap("<C-n>", function() harpoon_ui.nav_file(3) end)
-nnoremap("<C-s>", function() harpoon_ui.nav_file(4) end)
+local harpoon = require("harpoon")
+local extensions = require("harpoon.extensions");
+-- REQUIRED
+harpoon:setup()
+-- REQUIRED
+harpoon:extend(extensions.builtins.navigate_with_number());
+
+vim.keymap.set("n", "<leader>a", function() harpoon:list():append() end)
+vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
+
+vim.keymap.set("n", "<C-h>", function() harpoon:list():select(1) end)
+vim.keymap.set("n", "<C-t>", function() harpoon:list():select(2) end)
+vim.keymap.set("n", "<C-n>", function() harpoon:list():select(3) end)
+vim.keymap.set("n", "<C-s>", function() harpoon:list():select(4) end)
+
+-- Toggle previous & next buffers stored within Harpoon list
+vim.keymap.set("n", "<C-S-P>", function() harpoon:list():prev() end)
+vim.keymap.set("n", "<C-S-N>", function() harpoon:list():next() end)

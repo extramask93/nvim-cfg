@@ -7,7 +7,7 @@ local cmp = require('cmp')
 local luasnip = require("luasnip")
 local cmp_select = {behavior = cmp.SelectBehavior.Select}
 local cmp_mappings = lsp.defaults.cmp_mappings({
-    ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-S-f>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
     ['<C-Space>'] = cmp.mapping.complete(),
     ['<CR>'] = cmp.mapping.confirm {

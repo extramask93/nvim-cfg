@@ -23,6 +23,7 @@ local mappings = {
         R = { "<cmd>Telescope registers<cr>", "Registers" },
         k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
         C = { "<cmd>Telescope commands<cr>", "Commands" },
+        o = { "<cmd>lua require('telescope.builtin').git_commits({use_git_root=false, git_command={'git', 'log', '--all', '-i', '--', '.'}})<cr>" ,"Commits" },
     },
     p = {
         name = "Packer",
@@ -37,6 +38,7 @@ local mappings = {
         a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
         n = { function() vim.lsp.inlay_hint.enable(0,not vim.lsp.inlay_hint.is_enabled()) end, "Toggle inlay" },
         d = { "<cmd>lua vim.diagnostic.open_float()<cr>", "Diagnostic" },
+        s = { "<cmd>ClangdSwitchSourceHeader<cr>", "Switch" },
         f = { "<cmd>lua vim.lsp.buf.format{async=true}<cr>", "Format" },
         g = { "<cmd>lua vim.lsp.buf.definition()<cr>", "Go to definition"},
         h = { "<cmd>lua vim.lsp.buf.hover()<cr>", "Hover"},
@@ -53,6 +55,7 @@ local mappings = {
         l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
         q = { "<cmd>lua vim.diagnostic.setloclist()<cr>", "Quickfix" },
         r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
+        R = { "<cmd>lua require('telescope.builtin').lsp_references()<cr>", "References" },
     },
 
 }
